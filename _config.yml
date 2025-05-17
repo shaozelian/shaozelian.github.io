@@ -3,7 +3,7 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 title: Shao Zelian
-description: My personal site
+description: "人而无信，不知其可也 | 学不可以已"
 show_downloads: false
 site.lang: "zh-CN"
 
