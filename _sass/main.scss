@@ -35,7 +35,8 @@
         text-transform: uppercase;
     }
 
-    .accomplishments ul li {
+    .accomplishments ul li,
+    .certifications ul li {
         list-style-image: url("../images/code.svg");
     }
 
@@ -125,7 +126,7 @@
 
     .work {
         width: 100%;
-        margin-left:-15px;
+        margin-left: -15px;
     }
 
     .work small {

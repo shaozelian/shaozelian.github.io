@@ -34,7 +34,8 @@
   margin-bottom: 10px;
   text-transform: uppercase;
 }
-.details .accomplishments ul li {
+.details .accomplishments ul li,
+.details .certifications ul li {
   list-style-image: url("../images/code.svg");
 }
 .details .section__list-item {
