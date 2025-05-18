@@ -29,22 +29,22 @@
 
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Jekyll | Shao Zelian</title>
+<title>How to build persone site using Github Pages and Jekyll? | Shao Zelian</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Jekyll" />
+<meta property="og:title" content="How to build persone site using Github Pages and Jekyll?" />
 <meta name="author" content="Shao Zelian" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="人而无信，不知其可也 学不可以已" />
-<meta property="og:description" content="人而无信，不知其可也 学不可以已" />
+<meta name="description" content="Github Pages can provide free static web pages hosting. Jekyll is a popular static site generator that integrates seamlessly with GitHub Pages. Here’s how you can set up and use Jekyll with GitHub Pages…" />
+<meta property="og:description" content="Github Pages can provide free static web pages hosting. Jekyll is a popular static site generator that integrates seamlessly with GitHub Pages. Here’s how you can set up and use Jekyll with GitHub Pages…" />
 <link rel="canonical" href="http://localhost:4000/2025/05/18/jekyll.html" />
 <meta property="og:url" content="http://localhost:4000/2025/05/18/jekyll.html" />
 <meta property="og:site_name" content="Shao Zelian" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-05-18T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Jekyll" />
+<meta property="twitter:title" content="How to build persone site using Github Pages and Jekyll?" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Shao Zelian"},"dateModified":"2025-05-18T00:00:00+08:00","datePublished":"2025-05-18T00:00:00+08:00","description":"人而无信，不知其可也 学不可以已","headline":"Jekyll","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/05/18/jekyll.html"},"url":"http://localhost:4000/2025/05/18/jekyll.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Shao Zelian"},"dateModified":"2025-05-18T00:00:00+08:00","datePublished":"2025-05-18T00:00:00+08:00","description":"Github Pages can provide free static web pages hosting. Jekyll is a popular static site generator that integrates seamlessly with GitHub Pages. Here’s how you can set up and use Jekyll with GitHub Pages…","headline":"How to build persone site using Github Pages and Jekyll?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/05/18/jekyll.html"},"url":"http://localhost:4000/2025/05/18/jekyll.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -79,7 +79,7 @@
         </li>
         
         <li class="navbar__item">
-            <a href="/blog.html"  class="navbar__link" >
+            <a href="/blog/index.html"  class="navbar__link" >
                 
                 
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#b5e853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
@@ -147,10 +147,73 @@
 
     <div class="container">
         <section id="main_content">
-            <h1>Jekyll</h1>
-<p>18 May 2025 - Shao Zelian</p>
+            <h1>How to build persone site using Github Pages and Jekyll?</h1>
+<p class="post__author__date">Shao Zelian, 18 May 2025</p>
 
+<p>Github Pages can provide free static web pages hosting. Jekyll is a popular static site generator that integrates seamlessly with GitHub Pages. Here’s how you can set up and use Jekyll with GitHub Pages…</p>
 
+<h2 id="part-1---quick-start-of-creating-personal-site">Part 1 - Quick start of creating personal site.</h2>
+<ol>
+  <li><a href="#1.1">Create Github repository.</a></li>
+  <li><a href="#1.2">Enable Github Pages by settings.</a></li>
+  <li><a href="#1.3">Apply Jekyll theme. (optional)</a></li>
+  <li><a href="#1.4">Visit personal site.</a></li>
+</ol>
+
+<h3 id="1-create-github-repository"><span id="1.1">1. Create Github repository.</span></h3>
+<ul>
+  <li>Login <a href="https://www.github.com">github.com</a> and create a repository with the following settings.<br />
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+          <pre class="highlight"><code>Repository Name: {Owner} / <span class="si">{<span class="s2">username</span>}.github.io</span><br />Public or private: <span class="si">Public</span><br />Add a README file: <span class="si">Checked</span><br />Add .gitignore template: <span class="si">Jekyll</span></code></pre>
+      </div>
+  </div>
+  </li>
+</ul>
+
+<h3 id="2-enable-github-pages-by-settings"><span id="1.2">2. Enable Github Pages by settings.</span></h3>
+<ul>
+  <li>Open the created repository. <br /></li>
+  <li>Click tab “Settings” &gt; menu item “Pages”.
+    <div class="language-plaintext highlighter-rouge">
+      <div class="highlight">
+          <pre class="highlight"><code>Source: <span class="si">Deply from a branch</span><br />Branch: <span class="si">Main / (root)</span><br /></code></pre>
+      </div>
+  </div>
+  </li>
+</ul>
+
+<h3 id="3-apply-jekyll-theme-optional"><span id="1.3">3. Apply Jekyll theme. (optional)</span></h3>
+<p>The step is optional. If you want to see how it is easy to quickly enable Jekyll theme, following the steps below. <br /></p>
+<ul>
+  <li>Create a “_config.yml” file in the root folder of the repository.</li>
+  <li>Copy the code into the file and save it. <br />
+    <div class="language-ruby highlighter-rouge">
+      <div class="highlight">
+          <pre class="highlight"><code><span class="c1"># _config.yml file.</span><br />remote_theme: pages-themes/hacker@v0.2.0<br />plugins:<br />- jekyll-remote-theme<br /><br />title: my site title<br />description: my site description.</code></pre>
+      </div>
+  </div>
+  </li>
+  <li>Click tab “Actions” &gt; “All workflows”. One or two workflow is created automatically because of code repository changes detected by <a href="https://docs.github.com/en/actions">Github Actions</a>.</li>
+  <li>If the latest workflow runs as below, the deployment of your site is completed successfully. 
+  <img src="/assets/images/blog/2025-05-18-jekyll-01.png" alt="Workflow" /></li>
+</ul>
+
+<h3 id="4-visit-personal-site"><span id="1.4">4. Visit personal site.</span></h3>
+<p>Open <a href="javascript:void(0);">https://{username}.github.io</a>.</p>
+
+<h2 id="part-2---set-up-local-development-and-cicd-environment">Part 2 - Set up local development and CI/CD environment.</h2>
+
+<p>In the real world, we normally need a local development environment which allows us to code, local debugging and testing. It doesn’t need deploy uncompleted work to remote website every time. <br />
+In this section, we will lead you step by step for how to set the local development using Microsoft Visual Studio within Windows system.</p>
+
+<ol>
+  <li><a href="#2.1">Prerequisite</a></li>
+  <li><a href="#2.2">Setup</a></li>
+  <li><a href="#2.3">Configurations</a></li>
+  <li><a href="#2.4">Walk through simple functions</a></li>
+  <li><a href="#2.5">Q&amp;A of common problems and errors</a></li>
+</ol>
 
         </section>
     </div>
