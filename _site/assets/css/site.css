@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+ul li {
+  list-style-image: url("../images/code.svg");
+}
+
 header {
   margin-bottom: 20px;
 }
@@ -90,14 +94,14 @@ header {
 
 .hero__text h1 {
   color: white;
-  font-size: 50px !important;
+  font-size: 3rem !important;
   font-weight: bolder;
   white-space: nowrap;
 }
 
 .hero__text p {
   color: white;
-  font-size: 20px !important;
+  font-size: 1.5rem !important;
   font-weight: bolder;
   white-space: nowrap;
 }
