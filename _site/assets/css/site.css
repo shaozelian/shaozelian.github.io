@@ -22,6 +22,7 @@
 .navbar__menu {
   position: relative;
   display: flex;
+  padding-inline-start: 0px;
 }
 
 .navbar__link {
@@ -32,11 +33,10 @@
   align-items: center;
   justify-content: center;
   height: 3rem;
-  width: 10rem;
+  width: 5rem;
   color: #b5e853;
   transition: 250ms ease all;
   text-decoration: none;
-  width: 10rem;
   text-transform: uppercase;
   transition: 500ms ease all;
 }
