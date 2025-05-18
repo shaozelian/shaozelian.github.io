@@ -1,5 +1,11 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css";
+
 * {
     box-sizing: border-box;
+}
+
+header{
+    margin-bottom: 20px;
 }
 
 .container #navigation {
@@ -22,7 +28,7 @@
 .navbar__menu {
     position: relative;
     display: flex;
-    padding-inline-start:0px;
+    padding-inline-start: 0px;
 }
 
 .navbar__link {
@@ -56,9 +62,35 @@
 
 
 .current {
-    color: mediumpurple;
+    color: #5695cd;
     text-decoration-line: none;
 }
+
+.resume__contact {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.resume__contact .info-item {
+    font-weight: 300;
+}
+
+.resume__contact .info-item:last-child {
+    margin-bottom: 0;
+}
+
+.resume__contact .info-label {
+    display: inline-block;
+    padding-right: 0.63em;
+    font-size: 1.14em;
+    min-width: 2.19em;
+    text-align: center;
+}
+
+.resume__contact .info-label i {
+    color: #5695cd;
+}
+
 
 .highlight {
     color: #b5e853;
