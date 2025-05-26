@@ -7,6 +7,7 @@ tags: jekyll
 ---
 
 Pagination is common practice if there are more posts in your blog. Jekyll also supports this feature by "jekyll-paginate" plugin. <br/>
+<!--more-->
 
 <i>Notes: Pagination only works with HTML files. </i>
 
