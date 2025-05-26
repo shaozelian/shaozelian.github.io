@@ -3,6 +3,7 @@ layout: post
 author: Shao Zelian
 title:  Never feel self-pity - Charlie Munger
 excerpt: In my long life, there are two things I would never do...
+category: Proverbs
 ---
 
 In my long life, there are two things I would never do. <br/>

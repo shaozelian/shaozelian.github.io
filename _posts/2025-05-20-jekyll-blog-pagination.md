@@ -2,6 +2,8 @@
 layout: post
 author: Zelian Shao
 title: Jekyll 3 - How to enable pagination of blog page?
+category: Technologies
+tags: jekyll
 ---
 
 Pagination is common practice if there are more posts in your blog. Jekyll also supports this feature by "jekyll-paginate" plugin. <br/>

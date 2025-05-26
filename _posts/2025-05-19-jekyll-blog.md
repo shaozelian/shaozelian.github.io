@@ -3,6 +3,8 @@ layout: post
 author: Shao Zelian
 title: Jekyll 2 - Walk through build blog site.
 excerpt: Blog is an informational website consisting of articles (also known as posts). Jekyll is a very simple template for blog site but popular and easy to use.
+category: Technologies
+tags: blog, jekyll
 ---
 
 Prerequisite: This post assumes you have already a website built using Jekyll template. <br/>
