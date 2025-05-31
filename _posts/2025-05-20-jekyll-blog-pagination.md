@@ -11,6 +11,9 @@ Pagination is common practice if there are more posts in your blog. Jekyll also 
 
 <i>Notes: Pagination only works with HTML files. </i>
 
+Reference:
+> [Pagination \| Jekyll](https://jekyllrb.com/docs/pagination/)
+
 <b>Steps:</b><br/>
 1. Install "jekyll-paginate" plugin.
 2. Enable pagination in _config.yml.

@@ -1,7 +1,7 @@
 ---
 layout: default
-title: ABOUT
+title: About
 ---
-# About page
+# About the site
 
-This page tells you a little bit about me.
+The site is the personal site which was built using Github Pages and Jekyll template.

@@ -2,8 +2,6 @@
 layout: default
 title: BLOG
 ---
-<h1>Latest Posts</h1>
-
 <!--{% for category in site.categories %}
 <h3>{{ category[0] }}</h3>
 <ul>
@@ -12,6 +10,10 @@ title: BLOG
     {% endfor %}
 </ul>
 {% endfor %}-->
+
+<div style="text-align: right">
+    <a href="categories.html"><i class="fa fa-link"></i>&nbsp;Categories</a>
+</div>
 
 <ul class="blog__container">
     {% for post in paginator.posts %}
