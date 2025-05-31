@@ -34,82 +34,252 @@ title: My Profile
         object-fit: cover;
         float: left;
         margin-right: 20px;
+        margin-top: -20px;
     }
 
     .profile-info {
-        padding-top: 100px;
+        padding-top: 120px;
         padding-left: 20px;
+        margin-bottom: 0px !important;
     }
 
-        .profile-info h2 {
-            margin: 0 0 10px 0;
-            font-size: 20px;
-        }
-
-        .profile-info p {
-            margin: 5px 0;
-        }
-
         .profile-info .title {
-            margin: 5px 0;
-        }
-
-        .profile-info .contact {
-            margin-top: -120px;
+            color: #0077b5;
+            font-weight: bolder;
+            font-size: 18px;
         }
 
         .profile-info .company-container {
+            margin-top: -70px;
             text-align: right;
-            margin-top: -100px;
+            margin-bottom: 0px !important;
         }
 
             .profile-info .company-container .company-logo {
-                margin-right: 10px;
+                height: 50px;
                 filter: invert(50%);
             }
 
-        .profile-info a {
-            color: #0077b5;
-            text-decoration: none;
-        }
-
-    .buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
+    .resume__container {
+        padding: 20px;
     }
 
-        .buttons button {
-            background-color: #0077b5;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            flex: 1;
-            margin: 0 5px;
+    .resume__highlight {
+        color: #0077b5;
+        font-weight: bold;
+    }
+
+    .resume__container .resume__section {
+        margin-bottom: 30px;
+    }
+
+        .resume__container .resume__section .title {
+            letter-spacing: 2px;
+            font-size: 24px !important;
+            color: #b5e853;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-            .buttons button:hover {
-                background-color: #005a87;
+        .resume__container .resume__section .desc {
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+
+            .resume__container .resume__section .desc ul {
+                padding-left: 30px !important;
             }
+
+        .resume__container .resume__section .education {
+            display: flex;
+            align-items: center; /* 垂直居中 */
+        }
+
+        .resume__container .resume__section .skills input {
+            display: none;
+        }
+
+        .resume__container .resume__section .skills label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #C3DEF3;
+            border-radius: 20px;
+            margin-right: 2px;
+        }
+
+        .resume__container .resume__section .skills input:checked + label {
+            background: #0077b5;
+        }
+
+    .work {
+        width: 100%;
+        margin-left: -15px;
+    }
+
+        .work small {
+            display: block;
+            opacity: 0.7;
+            color: #63c0f5;
+        }
+
+        .work ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .work ol li {
+                position: relative;
+                margin-left: 15px;
+                padding-left: 25px;
+                padding-bottom: 15px;
+                list-style-image: none;
+            }
+
+                .work ol li:hover::before {
+                    animation: circle 1.2s infinite;
+                }
+
+                .work ol li:hover span {
+                    color: #fdd835;
+                }
+
+    @keyframes circle {
+        from {
+            box-shadow: 0 0 0 0px #fdd835;
+        }
+
+        to {
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+        }
+    }
+
+    .work ol li:first-of-type::before {
+        width: 20px;
+        height: 20px;
+        left: -3px;
+    }
+
+    .work ol li:last-of-type {
+        padding-bottom: 3px;
+    }
+
+        .work ol li:last-of-type::after {
+            border-radius: 1.5px;
+        }
+
+    .work ol li::before,
+    .work ol li::after {
+        content: "" !important;
+        display: block;
+        position: absolute;
+    }
+
+    .work ol li::before {
+        width: 12px;
+        height: 12px;
+        border: 3px solid #ffffff;
+        background: #ffb300;
+        border-radius: 50%;
+        left: 0px;
+        z-index: 1;
+    }
+
+    .work ol li::after {
+        width: 3px;
+        height: 100%;
+        background: #ffffff;
+        left: 5px;
+        top: 0;
+    }
+
+    .work ol li span {
+        transition-duration: 0.3s;
+    }
+
+    .work .work__items {
+        margin-left: -35px;
+    }
+
+        .work .work__items li {
+            list-style-type: square;
+            padding-left: 2px;
+            padding-bottom: 2px;
+        }
+
+            .work .work__items li::before,
+            .work .work__items li::after {
+                display: none;
+                position: absolute;
+            }
+
+    .work .company__name {
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        color: #b5e853;
+        font-size: 18px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    .work .work__item {
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+
+        .work .work__item .work__title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .work .work__item ul.work__desc {
+            margin-left: -20px;
+        }
+
+        .work .work__item li {
+            list-style-type: square;
+            padding-left: 2px;
+            padding-bottom: 3px;
+        }
+
+            .work .work__item li::before,
+            .work .work__item li::after {
+                display: none;
+                position: absolute;
+            }
+
+    @media only screen and (min-width: 431px) {
+        .profile-header h1 {
+            font-size: 24px !important;
+        }
+    }
+
+    @media only screen and (max-width: 430px) {
+        .profile-header h1 {
+            font-size: 16px !important;
+        }
+
+        .profile-image {
+            margin-top: -50px;
+        }
+
+        .profile-info {
+            padding-top: 20px;
+        }
+    }
 </style>
 
 <div class="profile-container">
     <div class="profile-header">
-        <img src="/assets/images/resume/avatar.jpg" alt="Profile Image" class="profile-image"> <!-- 替换为实际图片URL -->
+        <img src="/assets/images/resume/avatar.jpg" alt="Profile Image" class="profile-image">
         <h1>Next ADVENTURE w/ EVEREST</h1>
     </div>
-    <div class="profile-info">
-        <h2>Zelian SHAO</h2>
-        <p class="title">Manager at BMW China Group</p>
-        <div class="company-container">
-            <a href="https://www.linkedin.com/in/zelian-s-2a435b40/" style=" margin-top: -100px; margin-right: 20px"><img src="/assets/images/resume/linkedin-logo.webp" alt="linked-in" style="width:32px;"></a><br />
-            <img src="/assets/images/resume/bmw-group-logo.png" alt="BMW Group" class="company-logo" style="height: 30px"><br />
-            <img src="/assets/images/resume/accenture-logo-1030x539.png" alt="Accenture" class="company-logo" style="width: 300px; margin-top: -30px;"><br />
-            <img src="/assets/images/resume/beihang.png" alt="Beihang University" class="company-logo" style="width: 300px; margin-top: -80px;">
-        </div>
-        <div class="contact">
+
+    <div class="row profile-info">
+        <div class="col l6 s12">
+            <h2>Zelian SHAO</h2>
+            <p class="title">Manager at BMW China Group</p>
             <div>
                 <i class="fa fa-location-arrow"></i>&nbsp;<span>Huangpu District, Shanghai, China</span>
             </div>
@@ -120,30 +290,41 @@ title: My Profile
                 <i class="fa fa-home"></i>&nbsp;<a href="https://shaozelian.github.io">https://shaozelian.github.io</a>
             </div>
         </div>
+        <div class="col l6 s12">
+            <div class="row company-container">
+                <div class="col s12">
+                    <a href="https://www.linkedin.com/in/zelian-s-2a435b40/" style=" margin-top: -100px; margin-right: 20px"><img src="/assets/images/resume/linkedin-logo.webp" alt="linked-in" style="width:32px;"></a><br />
+                </div>
+                <div class="col s12 company-logo">
+                    <img src="/assets/images/resume/bmw-group-logo.png" alt="BMW Group" class="company-logo">
+                </div>
+                <div class="col s12 company-logo">
+                    <img src="/assets/images/resume/accenture-logo-1030x539.png" alt="Accenture" class="company-logo" style="height: 80px;">
+                </div>
+                <div class="col s12 company-logo">
+                    <img src="/assets/images/resume/beihang.png" alt="Beihang University" class="company-logo" style="height: 80px;">
+                </div>
+            </div>
+        </div>
     </div>
-    <!--<div class="buttons">
-        <button>+ 关注</button>
-        <button>发消息</button>
-        <button>更多</button>
-    </div>-->
-    <div style="margin-top: 50px; margin-bottom: 50px;"><hr /></div>
-    <div class="details">
-        <div class="section">
-            <h1 class="section__title">Professional Summary</h1>
+    <hr />
+    <div class="resume__container">
+        <div class="resume__section">
+            <h1 class="title">Professional Summary</h1>
             <div class="desc">
                 Diligent <u class="resume__highlight">IT Professional Manager</u> with proven ability to manage and lead teams effectively. Successfully implemented process improvements that enhanced operational efficiency and team productivity. Demonstrated strong problem-solving and communication skills to drive team success.
             </div>
         </div>
-        <div class="section">
-            <h1 class="section__title">Education</h1>
-            <div class="desc">
-                <img src="/assets/images/resume/beihang-logo.png" style="width: 30px; filter: invert(80%);" />
+        <div class="resume__section">
+            <h1 class="title">Education</h1>
+            <div class="desc education">
+                <img src="/assets/images/resume/beihang-logo.png" style="width: 50px; filter: invert(80%);" />&nbsp;&nbsp;
                 <span>Bachelor of Science, Management Information System | Beihang University (1996 - 2000)</span>
             </div>
         </div>
-        <div class="section">
-            <h1 class="section__title">Accomplishments</h1>
-            <div class="accomplishments">
+        <div class="resume__section">
+            <h1 class="title">Accomplishments</h1>
+            <div class="desc">
                 <ul>
                     <li>Managing <span class="resume__highlight">3</span> public cloud platforms including AWS, Azure and Ali-cloud.</li>
                     <li>Budget responsibility is over <span class="resume__highlight">>150</span> million RMB per year.</li>
@@ -153,190 +334,126 @@ title: My Profile
                 </ul>
             </div>
         </div>
-        <div class="section">
-            <h1 class="section__title">Skills</h1>
-            <div class="skills">
+        <div class="resume__section">
+            <h1 class="title">Skills</h1>
+            <div class="desc skills">
                 <div class="row">
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Leadership Skills
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" checked />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Leadership Skills</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input class="skill__checkbox" id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input class="skill__checkbox" id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input class="skill__checkbox" id="ck4" type="checkbox" checked />
+                        <label for="ck4"></label>
+                        <input class="skill__checkbox" id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Cloud Knowledge
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Cloud Knowledge</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Project Management
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" checked />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Project Management</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" checked />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Software Architecture
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Software Architecture</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    IT Service Management
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" checked />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">IT Service Management</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" checked />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Language (English)
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" checked />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Language (English)</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" checked />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    DevOps practices
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">DevOps practices</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
-                    <div class="column">
-                        <div class="skills__item">
-                            <div class="left">
-                                <div class="name">
-                                    Strategic & Analytical
-                                </div>
-                            </div>
-                            <div class="right">
-                                <input id="ck1" type="checkbox" checked />
-                                <label for="ck1"></label>
-                                <input id="ck2" type="checkbox" checked />
-                                <label for="ck2"></label>
-                                <input id="ck3" type="checkbox" checked />
-                                <label for="ck3"></label>
-                                <input id="ck4" type="checkbox" checked />
-                                <label for="ck4"></label>
-                                <input id="ck5" type="checkbox" />
-                                <label for="ck5"></label>
-                            </div>
-                        </div>
+                    <div class="col s3">Strategic & Analytical</div>
+                    <div class="col s3">
+                        <input id="ck1" type="checkbox" checked />
+                        <label for="ck1"></label>
+                        <input id="ck2" type="checkbox" checked />
+                        <label for="ck2"></label>
+                        <input id="ck3" type="checkbox" checked />
+                        <label for="ck3"></label>
+                        <input id="ck4" type="checkbox" checked />
+                        <label for="ck4"></label>
+                        <input id="ck5" type="checkbox" />
+                        <label for="ck5"></label>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="section">
-            <h1 class="section__title">Certifications</h1>
-            <div class="certifications">
+        <div class="resume__section">
+            <h1 class="title">Certifications</h1>
+            <div class="desc">
                 <ul>
                     <li>Certified PMP, Agile Scrum Master, CPMP</li>
                     <li>Certified ITILv4 Professional</li>
@@ -344,69 +461,87 @@ title: My Profile
                 </ul>
             </div>
         </div>
-        <div class="section">
-            <h1 class="section__title">Work History</h1>
-            <div class="work">
+        <div class="resume__section">
+            <h1 class="title">Work History</h1>
+            <div class="desc work">
                 <ol>
                     <li>
-                        <img src="/assets/images/resume/bmw-logo.png" style="width:20px;"/>
-                        <span>Automotive OEM, Premium Brand | Shanghai, China (Apr 2017 - Now, 8 years)</span>
-                        <small>Telematics Service Platform (TSP) Supervisor (Jan 2022 - Now)</small>
-                        <ul class="work__items">
-                            <li><span class="resume__highlight">Managing a group </span> including strategy, people, finance, project, and so on.</li>
-                            <li>Supervising <span class="resume__highlight">ICV platform</span> leveraging ITIL/ITSM, FinOps and AIOps practices.</li>
-                            <li>Responsible for <span class="resume__highlight">IT operations processes</span> of R&D center. </li>
-                            <li>Led <span class="resume__highlight">cloudification project</span> by migrating <span class="resume__highlight">>100</span> applications from BMW DC to AWS cloud.</li>
-                            <li>To satisfy China regulations on cross-border data transfer, lead the <span class="resume__highlight">risks management</span> projects and defined corresponding measures.</li>
-                            <li>Establish China <span class="resume__highlight">level 2 support</span> capabilities for ~10 global products.</li>
-                        </ul>
-                        <small>Mobile Apps DevOps Lead (Apr 2017 - Dec 2021)</small>
-                        <ul class="work__items">
-                            <li>Led the launch of <span class="resume__highlight">connected mobile apps</span> and continuous operations. </li>
-                            <li>Achieved <span class="resume__highlight">monthly release</span> by balancing fast go-market and one-code-base strategy.</li>
-                            <li>Manage <span class="resume__highlight">15 DevOps teams</span> including partner members following agile working model.</li>
-                            <li>Enforce <span class="resume__highlight">DevOps practices</span> within teams including CI/CD, automation testing, agile working SAFE model, etc.</li>
-                        </ul>
+                        <div class="company__name">
+                            <img src="/assets/images/resume/bmw-logo.png" style="width:50px;" />&nbsp;&nbsp;
+                            <span>BMW Group China | Shanghai, China (Apr 2017 - Now, 8 years)</span>
+                        </div>
+                        <div class="work__item">
+                            <div class="work__title">Telematics Service Platform (TSP) Supervisor (Jan 2022 - Now)</div>
+                            <ul class="work__desc">
+                                <li><span class="resume__highlight">Managing a group </span> including strategy, people, finance, project, and so on.</li>
+                                <li>Supervising <span class="resume__highlight">ICV platform</span> leveraging ITIL/ITSM, FinOps and AIOps practices.</li>
+                                <li>Responsible for <span class="resume__highlight">IT operations processes</span> of R&D center. </li>
+                                <li>Led <span class="resume__highlight">cloudification project</span> by migrating <span class="resume__highlight">>100</span> applications from BMW DC to AWS cloud.</li>
+                                <li>To satisfy China regulations on cross-border data transfer, lead the <span class="resume__highlight">risks management</span> projects and defined corresponding measures.</li>
+                                <li>Establish China <span class="resume__highlight">level 2 support</span> capabilities for ~10 global products.</li>
+                            </ul>
+                        </div>
+
+                        <div class="work__item">
+                            <div class="work__title">Mobile Apps DevOps Lead (Apr 2017 - Dec 2021)</div>
+                            <ul class="work__desc">
+                                <li>Led the launch of <span class="resume__highlight">connected mobile apps</span> and continuous operations. </li>
+                                <li>Achieved <span class="resume__highlight">monthly release</span> by balancing fast go-market and one-code-base strategy.</li>
+                                <li>Manage <span class="resume__highlight">15 DevOps teams</span> including partner members following agile working model.</li>
+                                <li>Enforce <span class="resume__highlight">DevOps practices</span> within teams including CI/CD, automation testing, agile working SAFE model, etc.</li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <img src="/assets/images/resume/accenture-logo-icon.png" style="width:20px;" />
-                        <span>Accenture, Avanade (by Accenture/Microsoft) | Shanghai, China (Jan 2005 - Apr 2017, 12 years)</span>
-                        <small>
-                            Product Line Manager, Project Manager, IT Consultant, Developer, etc.
-                        </small>
-                        <ul class="work__items">
-                            <li>Most projects involved are <span class="resume__highlight">IT system delivery</span> including planning, design, implementation and operations support.</li>
-                            <li>Provided services to several large companies like Dow Chemical, Sony China, Petro China, China Mobile, Shanghai Bell, and so on.</li>
-                            <li>Accumulated plenty of <span class="resume__highlight">system integration</span> and <span class="resume__highlight">project management</span> experience.</li>
-                            <li>Promoted as Avanade Custom Development <span class="resume__highlight">product line manager</span> due to good performance.</li>
-                        </ul>
-                        <small>
-                            Account Manager, Architecture Specialist (Onsite support for Dow Chemical China IT Center.)
-                        </small>
-                        <ul class="work__items">
-                            <li>Delivered the planning, design and implementation of multiple IT systems successfully.</li>
-                            <li>Provided <span class="resume__highlight">professional operations</span> of IT systems including SAP, CRM, IAM solution, and so on.</li>
-                            <li>Served Dow Chemical for <span class="resume__highlight">8 years</span> in total and built trusted relationship with Dow Chemical</li>
-                            <li>Grew an onsite service team from 4 to 25 as <span class="resume__highlight">account delivery manager</span>. </li>
-                            <li>Achieved only 1 attrition record during the 4 years.</li>
-                        </ul>
+                        <div class="company__name">
+                            <img src="/assets/images/resume/accenture-logo-icon.png" style="width:50px;" />&nbsp;&nbsp;
+                            <span>Accenture, Avanade (by Accenture/Microsoft) | Shanghai, China (Jan 2005 - Apr 2017, 12 years)</span>
+                        </div>
+                        <div class="work__item">
+                            <div class="work__title">Product Line Manager, Project Manager, IT Consultant, Developer, etc.</div>
+                            <ul class="work__desc">
+                                <li>Most projects involved are <span class="resume__highlight">IT system delivery</span> including planning, design, implementation and operations support.</li>
+                                <li>Provided services to several large companies like Dow Chemical, Sony China, Petro China, China Mobile, Shanghai Bell, and so on.</li>
+                                <li>Accumulated plenty of <span class="resume__highlight">system integration</span> and <span class="resume__highlight">project management</span> experience.</li>
+                                <li>Promoted as Avanade Custom Development <span class="resume__highlight">product line manager</span> due to good performance.</li>
+                            </ul>
+                        </div>
+
+                        <div class="work__item">
+                            <div class="work__title">Account Manager, Architecture Specialist (Onsite support for Dow Chemical China IT Center.)</div>
+                            <ul class="work__desc">
+                                <li>Delivered the planning, design and implementation of multiple IT systems successfully.</li>
+                                <li>Provided <span class="resume__highlight">professional operations</span> of IT systems including SAP, CRM, IAM solution, and so on.</li>
+                                <li>Served Dow Chemical for <span class="resume__highlight">8 years</span> in total and built trusted relationship with Dow Chemical</li>
+                                <li>Grew an onsite service team from 4 to 25 as <span class="resume__highlight">account delivery manager</span>. </li>
+                                <li>Achieved only 1 attrition record during the 4 years.</li>
+                            </ul>
+                        </div>
                     </li>
                     <li>
-                        <img src="/assets/images/resume/infosys-logo.webp" style="width:30px;" />
-                        <span>Infosys China | Shanghai, China (2004 - 2005, 1 year)</span>
-                        <small>Seniro Software Engineer</small>
+                        <div class="company__name">
+                            <img src="/assets/images/resume/infosys-logo.webp" style="width:50px;" />&nbsp;&nbsp;
+                            <span>Infosys China | Shanghai, China (2004 - 2005, 1 year)</span>
+                        </div>
+                        <div class="work__item">
+                            <div class="work__title">Seniro Software Engineer</div>
+                        </div>
                     </li>
                     <li>
-                        <img src="/assets/images/resume/inspur-logo.png" style="width:30px;" />
-                        <span>Langchao Group | Beijing, China (2000 - 2003, 3 years)</span>
-                        <small>Project coordinator, software developer, etc.</small>
+                        <div class="company__name">
+                            <img src="/assets/images/resume/inspur-logo.png" style="width:50px;" />&nbsp;&nbsp;
+                            <span>Langchao Group | Beijing, China (2000 - 2003, 3 years)</span>
+                        </div>
+                        <div class="work__item">
+                            <div class="work__title">Project coordinator, software developer, etc.</div>
+                        </div>
                     </li>
                 </ol>
             </div>
         </div>
 
-        <div class="section">
-            <h1 class="section__title">Other Skills</h1>
+        <div class="resume__section">
+            <h1 class="title">Other Skills</h1>
             <div class="desc">
                 <ul>
                     <li>Cloud platforms management, AWS, Azure, Alibaba Cloud</li>
