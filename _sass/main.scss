@@ -13,6 +13,10 @@ a {
     text-decoration: none;
 }
 
+ul:not(.browser-default) {
+    padding-left: 25px !important;
+}
+
 ul li {
     list-style-image: url("../images/code.svg");
 }
@@ -29,7 +33,12 @@ header {
 
 .container #main_content {
     margin-bottom: 100px;
+    padding: 5px;
 }
+
+/*.container .main_content ul {
+    padding-left: 25px !important;
+}*/
 
 .container #navigation {
     margin-bottom: 0px !important;
@@ -466,6 +475,11 @@ header {
 
 pre .highlight {
     border: none;
+}
+
+/* mermaid */
+pre:has(code.language-mermaid) {
+    background-color:wheat !important;
 }
 
 .footer {
