@@ -2,17 +2,36 @@
 layout: default
 title: BLOG
 ---
-<!--{% for category in site.categories %}
-<h3>{{ category[0] }}</h3>
-<ul>
-    {% for post in category[1] %}
-    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
-{% endfor %}-->
 
-<div>
-    <a href="categories.html"><i class="fa fa-link"></i>&nbsp;Categories</a>
+<style>
+    .floating-div {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 300px;
+        position: sticky;
+        z-index: 1020;
+        float: right;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .border-start {
+        border-left: 1px solid #b5e853 !important;
+    }
+
+    @media only screen and (max-width: 430px) {
+        .floating-div {
+            display:none;
+        }
+    }
+</style>
+
+<div class="floating-div border-start">
+    <a href="categories.html" style="margin-bottom: 20px;"><i class="fa fa-link"></i>&nbsp;Categories</a><br />
+    {% for category in site.categories %}
+    <span>{{ category[0] }}</span> ({{ category[1].size }})<br />
+    {% endfor %}
 </div>
 
 <div class="blog__container">
@@ -25,7 +44,6 @@ title: BLOG
         {% endfor %}
     </ul>
 </div>
-
 
 <!-- Pagination links -->
 {% if paginator.total_pages > 1 %}
