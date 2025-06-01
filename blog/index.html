@@ -15,14 +15,17 @@ title: BLOG
     <a href="categories.html"><i class="fa fa-link"></i>&nbsp;Categories</a>
 </div>
 
-<ul class="blog__container">
-    {% for post in paginator.posts %}
-    <li>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a><span>&nbsp;|&nbsp;{{ post.date | date_to_string }}</span></h3>
-        <span>{{ post.excerpt }}</span>
-    </li>
-    {% endfor %}
-</ul>
+<div class="blog__container">
+    <ul>
+        {% for post in paginator.posts %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a><span>&nbsp;|&nbsp;{{ post.date | date_to_string }}</span></h3>
+            <span>{{ post.excerpt }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
 
 <!-- Pagination links -->
 {% if paginator.total_pages > 1 %}

@@ -4,270 +4,6 @@ title: My Profile
 ---
 
 <style>
-    .profile-container {
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        max-width: 100%;
-        margin: auto;
-        padding: 10px;
-    }
-
-    .profile-header {
-        background-image: url('/assets/images/resume/background.jpg'); /* 替换为实际背景图片URL */
-        background-size: cover;
-        padding: 80px 0px 50px 35px;
-        text-align: center;
-        border-radius: 8px;
-    }
-
-        .profile-header h1 {
-            margin: 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-    .profile-image {
-        border-radius: 50%;
-        width: 180px;
-        height: 180px;
-        object-fit: cover;
-        float: left;
-        margin-right: 20px;
-        margin-top: -20px;
-    }
-
-    .profile-info {
-        padding-top: 120px;
-        padding-left: 20px;
-        margin-bottom: 0px !important;
-    }
-
-        .profile-info .title {
-            color: #0077b5;
-            font-weight: bolder;
-            font-size: 18px;
-        }
-
-        .profile-info .company-container {
-            margin-top: -70px;
-            text-align: right;
-            margin-bottom: 0px !important;
-        }
-
-            .profile-info .company-container .company-logo {
-                height: 50px;
-                filter: invert(50%);
-            }
-
-    .resume__container {
-        padding: 20px;
-    }
-
-    .resume__highlight {
-        color: #0077b5;
-        font-weight: bold;
-    }
-
-    .resume__container .resume__section {
-        margin-bottom: 30px;
-    }
-
-        .resume__container .resume__section .title {
-            letter-spacing: 2px;
-            font-size: 24px !important;
-            color: #b5e853;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .resume__container .resume__section .desc {
-            padding-top: 10px;
-            padding-left: 10px;
-        }
-
-            .resume__container .resume__section .desc ul {
-                padding-left: 30px !important;
-            }
-
-        .resume__container .resume__section .education {
-            display: flex;
-            align-items: center; /* 垂直居中 */
-        }
-
-        .resume__container .resume__section .skills input {
-            display: none;
-        }
-
-        .resume__container .resume__section .skills label {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background: #C3DEF3;
-            border-radius: 20px;
-            margin-right: 2px;
-        }
-
-        .resume__container .resume__section .skills input:checked + label {
-            background: #0077b5;
-        }
-
-    .work {
-        width: 100%;
-        margin-left: -15px;
-    }
-
-        .work small {
-            display: block;
-            opacity: 0.7;
-            color: #63c0f5;
-        }
-
-        .work ol {
-            list-style-type: none;
-            padding: 0;
-        }
-
-            .work ol li {
-                position: relative;
-                margin-left: 15px;
-                padding-left: 25px;
-                padding-bottom: 15px;
-                list-style-image: none;
-            }
-
-                .work ol li:hover::before {
-                    animation: circle 1.2s infinite;
-                }
-
-                .work ol li:hover span {
-                    color: #fdd835;
-                }
-
-    @keyframes circle {
-        from {
-            box-shadow: 0 0 0 0px #fdd835;
-        }
-
-        to {
-            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
-        }
-    }
-
-    .work ol li:first-of-type::before {
-        width: 20px;
-        height: 20px;
-        left: -3px;
-    }
-
-    .work ol li:last-of-type {
-        padding-bottom: 3px;
-    }
-
-        .work ol li:last-of-type::after {
-            border-radius: 1.5px;
-        }
-
-    .work ol li::before,
-    .work ol li::after {
-        content: "" !important;
-        display: block;
-        position: absolute;
-    }
-
-    .work ol li::before {
-        width: 12px;
-        height: 12px;
-        border: 3px solid #ffffff;
-        background: #ffb300;
-        border-radius: 50%;
-        left: 0px;
-        z-index: 1;
-    }
-
-    .work ol li::after {
-        width: 3px;
-        height: 100%;
-        background: #ffffff;
-        left: 5px;
-        top: 0;
-    }
-
-    .work ol li span {
-        transition-duration: 0.3s;
-    }
-
-    .work .work__items {
-        margin-left: -35px;
-    }
-
-        .work .work__items li {
-            list-style-type: square;
-            padding-left: 2px;
-            padding-bottom: 2px;
-        }
-
-            .work .work__items li::before,
-            .work .work__items li::after {
-                display: none;
-                position: absolute;
-            }
-
-    .work .company__name {
-        display: flex;
-        align-items: center; /* 垂直居中 */
-        color: #b5e853;
-        font-size: 18px;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-    }
-
-    .work .work__item {
-        padding-left: 10px;
-        margin-bottom: 10px;
-    }
-
-        .work .work__item .work__title {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .work .work__item ul.work__desc {
-            margin-left: -20px;
-        }
-
-        .work .work__item li {
-            list-style-type: square;
-            padding-left: 2px;
-            padding-bottom: 3px;
-        }
-
-            .work .work__item li::before,
-            .work .work__item li::after {
-                display: none;
-                position: absolute;
-            }
-
-    @media only screen and (min-width: 431px) {
-        .profile-header h1 {
-            font-size: 24px !important;
-        }
-    }
-
-    @media only screen and (max-width: 430px) {
-        .profile-header h1 {
-            font-size: 16px !important;
-        }
-
-        .profile-image {
-            margin-top: -50px;
-        }
-
-        .profile-info {
-            padding-top: 20px;
-        }
-    }
 </style>
 
 <div class="profile-container">
@@ -278,8 +14,8 @@ title: My Profile
 
     <div class="row profile-info">
         <div class="col l6 s12">
-            <h2>Zelian SHAO</h2>
-            <p class="title">Manager at BMW China Group</p>
+            <h2>Zelian SHAO <a href="https://www.linkedin.com/in/zelian-s-2a435b40/"><img src="/assets/images/resume/linkedin-logo.webp" alt="linked-in" style="width:32px;"></a></h2>
+            <p class="title">Manager at BMW Group China</p>
             <div>
                 <i class="fa fa-location-arrow"></i>&nbsp;<span>Huangpu District, Shanghai, China</span>
             </div>
@@ -292,14 +28,11 @@ title: My Profile
         </div>
         <div class="col l6 s12">
             <div class="row company-container">
-                <div class="col s12">
-                    <a href="https://www.linkedin.com/in/zelian-s-2a435b40/" style=" margin-top: -100px; margin-right: 20px"><img src="/assets/images/resume/linkedin-logo.webp" alt="linked-in" style="width:32px;"></a><br />
+                <div class="col s12 company-logo">
+                    <img src="/assets/images/resume/bmw-group-logo.png" alt="BMW Group" class="company-logo" style="max-height: 35px;">
                 </div>
                 <div class="col s12 company-logo">
-                    <img src="/assets/images/resume/bmw-group-logo.png" alt="BMW Group" class="company-logo">
-                </div>
-                <div class="col s12 company-logo">
-                    <img src="/assets/images/resume/accenture-logo-1030x539.png" alt="Accenture" class="company-logo" style="height: 80px;">
+                    <img src="/assets/images/resume/accenture-logo.png" alt="Accenture" class="company-logo" style="height: 50px;">
                 </div>
                 <div class="col s12 company-logo">
                     <img src="/assets/images/resume/beihang.png" alt="Beihang University" class="company-logo" style="height: 80px;">
@@ -338,8 +71,8 @@ title: My Profile
             <h1 class="title">Skills</h1>
             <div class="desc skills">
                 <div class="row">
-                    <div class="col s3">Leadership Skills</div>
-                    <div class="col s3">
+                    <div class="col l3">Leadership Skills</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input class="skill__checkbox" id="ck2" type="checkbox" checked />
@@ -351,8 +84,8 @@ title: My Profile
                         <input class="skill__checkbox" id="ck5" type="checkbox" />
                         <label for="ck5"></label>
                     </div>
-                    <div class="col s3">Cloud Knowledge</div>
-                    <div class="col s3">
+                    <div class="col l3">Cloud Knowledge</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -366,8 +99,8 @@ title: My Profile
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s3">Project Management</div>
-                    <div class="col s3">
+                    <div class="col l3">Project Management</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -379,8 +112,8 @@ title: My Profile
                         <input id="ck5" type="checkbox" />
                         <label for="ck5"></label>
                     </div>
-                    <div class="col s3">Software Architecture</div>
-                    <div class="col s3">
+                    <div class="col l3">Software Architecture</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -394,8 +127,8 @@ title: My Profile
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s3">IT Service Management</div>
-                    <div class="col s3">
+                    <div class="col l3">IT Service Management</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -407,8 +140,8 @@ title: My Profile
                         <input id="ck5" type="checkbox" />
                         <label for="ck5"></label>
                     </div>
-                    <div class="col s3">Language (English)</div>
-                    <div class="col s3">
+                    <div class="col l3">Language (English)</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -422,8 +155,8 @@ title: My Profile
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col s3">DevOps practices</div>
-                    <div class="col s3">
+                    <div class="col l3">DevOps practices</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
@@ -435,8 +168,8 @@ title: My Profile
                         <input id="ck5" type="checkbox" />
                         <label for="ck5"></label>
                     </div>
-                    <div class="col s3">Strategic & Analytical</div>
-                    <div class="col s3">
+                    <div class="col l3">Strategic & Analytical</div>
+                    <div class="col l3">
                         <input id="ck1" type="checkbox" checked />
                         <label for="ck1"></label>
                         <input id="ck2" type="checkbox" checked />
