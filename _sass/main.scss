@@ -25,14 +25,32 @@ header {
     margin-bottom: 20px;
 }
 
+.circle {
+    display: inline-block;
+    line-height: 0px;
+    border-radius: 50%;
+    /*font-size: 12px;*/
+    background-color: #808080;
+    color: white;
+}
+
+.circle sup {
+    display: inline-block;
+    padding-top: 50%;
+    padding-bottom: 50%;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 6px;
+    margin-bottom: -6px;
+}
 
 /* add border to special table in markdown */
 div.special__table + table {
-    border-collapse: collapse;    
+    border-collapse: collapse;
 }
 
 div.special__table + table th {
-    border: 0.5px dashed #808080;    
+    border: 0.5px dashed #808080;
 }
 
 div.special__table + table tr {
@@ -500,7 +518,12 @@ pre .highlight {
 
 /* mermaid */
 pre:has(code.language-mermaid) {
-    background-color:wheat !important;
+    background-color: #f6f6f7 !important;
+}
+
+.material-tooltip{
+    max-width: 50% !important;
+    text-align: left;
 }
 
 .footer {
