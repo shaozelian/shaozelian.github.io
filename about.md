@@ -11,4 +11,5 @@ The site is the personal site which was built using Github Pages and Jekyll temp
 - [+CSS: Materialize](https://materializecss.com/)
 - [+CSS: Font Awesome](https://fontawesome.com/)
 - [Blog posts: Markdown](https://www.markdownguide.org/)
+- [Diagram: Mermaid](https://mermaid.js.org/)
 
