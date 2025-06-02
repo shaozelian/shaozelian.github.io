@@ -12,4 +12,6 @@ The site is the personal site which was built using Github Pages and Jekyll temp
 - [+CSS: Font Awesome](https://fontawesome.com/)
 - [Blog posts: Markdown](https://www.markdownguide.org/)
 - [Diagram: Mermaid](https://mermaid.js.org/)
+- [Diagram: svg-pan-zoom](https://github.com/bumbu/svg-pan-zoom)
+- [Diagram: d3-org-chart](https://github.com/bumbeishvili/org-chart)
 
