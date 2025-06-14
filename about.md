@@ -15,3 +15,5 @@ The site is the personal site which was built using Github Pages and Jekyll temp
 - [Diagram: svg-pan-zoom](https://github.com/bumbu/svg-pan-zoom)
 - [Diagram: d3-org-chart](https://github.com/bumbeishvili/org-chart)
 
+## **Collections**
+- [unicode icons / html-entities](https://symbl.cc/en/html-entities/)
