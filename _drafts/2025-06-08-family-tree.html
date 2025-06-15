@@ -1,0 +1,214 @@
+---
+layout: post
+author: Shao Zelian
+title: 山东省平邑县邵氏宗谱
+category: Technologies
+tags: D3
+excerpt: 费邑唐村，为邵氏族居之所。
+---
+
+<style>
+    .xAxis path,
+    .xAxis.line {
+        stoke: teal;
+        shape-rendering: crispEdges;
+    }
+
+    .xAxis text {
+        font-family: Optima, Futura, sans-serif;
+        font-weight: bold;
+        font-size: 14px;
+        fill: teal;
+    }
+
+    .node circle {
+        fill: #fff;
+        stroke: steelblue;
+        stroke-width: 3px;
+    }
+
+    .node text {
+        background-color: #fff;
+        font: 10px sans-serif;
+        color: #fff;
+    }
+
+    .link {
+        fill: none;
+        stroke: #ccc;
+        stoke-width: 2px;
+    }
+</style>
+
+<div id="tree__container"></div>
+
+<script>
+
+    var margin = { top: 20, right: 90, bottom: 20, left: 90 };
+    var width = 960 - margin.left - margin.right;
+    var height = 500 - margin.top - margin.bottom;
+
+    var zoomOutButton = d3.select("#tree__container")
+        .append("button")
+        .attr("type", "button")
+        .attr("id", "btn-zoom-out")
+        .attr("title", "Zoom Out")
+        .append("i")
+        .attr("class", "fa fa-plus");
+    var zoomInButton = d3.select("#tree__container")
+        .append("button")
+        .attr("type", "button")
+        .attr("id", "btn-zoom-in")
+        .attr("title", "Zoom In")
+        .append("i")
+        .attr("class", "fa fa-minus");
+    var zoomInButton = d3.select("#tree__container")
+        .append("button")
+        .attr("type", "button")
+        .attr("id", "btn-reset")
+        .attr("title", "Reset")
+        .append("i")
+        .attr("class", "fa fa-refresh");
+
+    var svg = d3.select("#tree__container")
+        .append("svg")
+        .attr("fill", "#fff")
+        .attr("viewBox", [-20, 90, width + margin.left + margin.right, height + margin.top + margin.bottom]);;
+
+    var i = 0;
+    var duration = 750;
+    var root;
+
+    var treemap = d3.tree().size([height, width]);
+
+    d3.csv("/assets/family-data.csv").then(data => {
+        // Convert flat data to hierarchy
+        const stratify = d3.stratify()
+            .id(d => d.id)
+            .parentId(d => d.parentId)
+            (data);
+
+        // Compute the hierarchy with optional value aggregation
+        root = d3.hierarchy(stratify, function (d) {
+            return d.children
+        }).sum(d => d.value);
+
+        root.x0 = height / 2;
+        root.y0 = 0;
+        console.log("root", root);
+
+        update(root);
+
+    });
+
+    function update(source) {
+        var treeData = treemap(root);
+        // nodes
+        var nodes = treeData.descendants();
+        nodes.forEach(function (d) {
+            d.y = d.depth * 90;
+        });
+        var node = svg.selectAll("g.node").data(nodes, function (d) {
+            return d.id || (d.id = ++i);
+        });
+        var nodeEnter = node.enter()
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function (d) {
+                return "translate(" + source.y0 + ", " + source.x0 + ")";
+            }).on("click", click);
+        nodeEnter.append("circle")
+            .attr("class", "node")
+            .attr("r", 0)
+            .style("fill", function (d) {
+                return d._children ? "red" : "#fff";
+            });
+        nodeEnter.append("text")
+            .attr("dy", ".35em")
+            .text(function (d) {
+                // console.log("full-name", d.data.data.full_name)
+                return d.data.data.full_name;
+            })
+            .attr("x", function (d) {
+                return -10;
+            }).attr("y", function (d) {
+                return -20;
+            })
+            // .attr("text-anchor", function (d) {
+            //    return d.children || d._children ? "end" : "start";
+            //})
+            ;
+        // node udpate
+        var nodeUpdate = nodeEnter.merge(node);
+        nodeUpdate.transition()
+            .duration(duration)
+            .attr("transform", function (d) {
+                return "translate(" + d.y + ", " + d.x + ")";
+            });
+        nodeUpdate.select("circle.node")
+            .attr("r", 10)
+            .style("fill", function (d) {
+                return d._children ? "red" : "#fff";
+            }).attr("cursor", "pointer");
+        // node exit
+        var nodeExit = node.exit()
+            .transition()
+            .duration(duration)
+            .attr("transform", function (d) {
+                return "translate(" + source.y + ", " + source.x + ")";
+            }).remove();
+        nodeExit.select("circle").attr("r", 0);
+        nodeExit.select("text").style("fill-opacity", 0);
+        //links
+        function diagonal(s, d) {
+            path = `M ${s.y} ${s.x}
+          C ${(s.y + d.y) / 2} ${s.x}
+            ${(s.y + d.y) / 2} ${d.x}
+            ${d.y} ${d.x}`;
+            return path;
+        }
+        var links = treeData.descendants().slice(1);
+        var link = svg.selectAll("path.link")
+            .data(links, function (d) {
+                return d.id;
+            });
+        var linkEnter = link
+            .enter()
+            .insert("path", "g")
+            .attr("class", "link")
+            .attr("d", function (d) {
+                var o = { x: source.x0, y: source.y0 };
+                return diagonal(o, o);
+            })
+        var linkUpdate = linkEnter.merge(link);
+        linkUpdate.transition()
+            .duration(duration)
+            .attr("d", function (d) {
+                return diagonal(d, d.parent);
+            });
+        var linkExit = link
+            .exit()
+            .transition()
+            .duration(duration)
+            .attr("d", function (d) {
+                var o = { x: source.x0, y: source.y0 };
+                return diagonal(o, o);
+            }).remove();
+        nodes.forEach(function (d) {
+            d.x0 = d.x;
+            d.y0 = d.y;
+        });
+    }
+
+    function click(event, d) {
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
+        } else {
+            d.children = d._children;
+            d._children = null;
+        }
+        update(d);
+    }
+
+</script>

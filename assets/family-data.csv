@@ -1,9 +1,9 @@
-﻿id,full_name,order,generation_number,generation,remark,parentId,parent_name,parent_generation_number,parent_generation
-93,邵一化(六世祖),1,6,六世,,686,邵（待证）,5,五世
-95,邵德,1,7,七世,,93,邵一化(六世祖),6,六世
-96,邵朗,2,7,七世,,93,邵一化(六世祖),6,六世
-686,邵（待证）,1,5,五世,,687,邵（待证）,4,四世
-687,邵（待证）,1,4,四世,,688,邵（待证）,3,三世
-688,邵（待证）,1,3,三世,,689,邵有胜,2,二世
+id,full_name,order,generation_number,generation,remark,parentId,parent_name,parent_generation_number,parent_generation
+93,邵一化,1,6,六世,,686,邵?,5,五世
+95,邵德,1,7,七世,,93,邵一化,6,六世
+96,邵朗,2,7,七世,,93,邵一化,6,六世
+686,邵?,1,5,五世,,687,邵?,4,四世
+687,邵?,1,4,四世,,688,邵?,3,三世
+688,邵?,1,3,三世,,689,邵有胜,2,二世
 689,邵有胜,1,2,二世,,690,邵起,1,一世
 690,邵起,1,1,一世,,,,,
