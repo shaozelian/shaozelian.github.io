@@ -6,7 +6,6 @@ category: Technologies
 tags: D3
 excerpt: 费邑唐村，为邵氏族居之所。
 ---
-
 <style>
     .xAxis path,
     .xAxis.line {
@@ -46,13 +45,23 @@ excerpt: 费邑唐村，为邵氏族居之所。
 
     var margin = { top: 20, right: 90, bottom: 20, left: 90 };
     var width = 960 - margin.left - margin.right;
-    var height = 500 - margin.top - margin.bottom;
+    var height = 800 - margin.top - margin.bottom;
+
+    let transform = {
+        x: 0,
+        y: 0,
+        k: 1,
+    };
+    let zoom = null;
+    const zoomMin = 0.3;
+    const zoomMax = 5;
 
     var zoomOutButton = d3.select("#tree__container")
         .append("button")
         .attr("type", "button")
         .attr("id", "btn-zoom-out")
         .attr("title", "Zoom Out")
+        .on("click", zoomOut)
         .append("i")
         .attr("class", "fa fa-plus");
     var zoomInButton = d3.select("#tree__container")
@@ -60,20 +69,28 @@ excerpt: 费邑唐村，为邵氏族居之所。
         .attr("type", "button")
         .attr("id", "btn-zoom-in")
         .attr("title", "Zoom In")
+        .on("click", zoomIn)
         .append("i")
         .attr("class", "fa fa-minus");
-    var zoomInButton = d3.select("#tree__container")
+    var resetButton = d3.select("#tree__container")
         .append("button")
         .attr("type", "button")
         .attr("id", "btn-reset")
-        .attr("title", "Reset")
+        .attr("title", "Reset Zoom")
+        .on("click", resetZoom)
         .append("i")
         .attr("class", "fa fa-refresh");
 
     var svg = d3.select("#tree__container")
         .append("svg")
         .attr("fill", "#fff")
-        .attr("viewBox", [-20, 90, width + margin.left + margin.right, height + margin.top + margin.bottom]);;
+        .attr("viewBox", [-20, 90, width + margin.left + margin.right, height + margin.top + margin.bottom]);
+
+    const container = svg.append('g')
+        .attr(
+            'transform',
+            `translate(${transform.x},${transform.y} ) scale(${transform.k})`,
+        );
 
     var i = 0;
     var duration = 750;
@@ -98,7 +115,7 @@ excerpt: 费邑唐村，为邵氏族居之所。
         console.log("root", root);
 
         update(root);
-
+        bindZoom();
     });
 
     function update(source) {
@@ -106,11 +123,12 @@ excerpt: 费邑唐村，为邵氏族居之所。
         // nodes
         var nodes = treeData.descendants();
         nodes.forEach(function (d) {
-            d.y = d.depth * 90;
+            d.y = d.depth * 50;
         });
-        var node = svg.selectAll("g.node").data(nodes, function (d) {
+        var node = container.selectAll("g.node").data(nodes, function (d) {
             return d.id || (d.id = ++i);
         });
+        console.log("node: ", node);
         var nodeEnter = node.enter()
             .append("g")
             .attr("class", "node")
@@ -121,7 +139,7 @@ excerpt: 费邑唐村，为邵氏族居之所。
             .attr("class", "node")
             .attr("r", 0)
             .style("fill", function (d) {
-                return d._children ? "red" : "#fff";
+                return d._children ? "blue" : "#fff";
             });
         nodeEnter.append("text")
             .attr("dy", ".35em")
@@ -148,7 +166,7 @@ excerpt: 费邑唐村，为邵氏族居之所。
         nodeUpdate.select("circle.node")
             .attr("r", 10)
             .style("fill", function (d) {
-                return d._children ? "red" : "#fff";
+                return d._children ? "blue" : "#fff";
             }).attr("cursor", "pointer");
         // node exit
         var nodeExit = node.exit()
@@ -168,7 +186,7 @@ excerpt: 费邑唐村，为邵氏族居之所。
             return path;
         }
         var links = treeData.descendants().slice(1);
-        var link = svg.selectAll("path.link")
+        var link = container.selectAll("path.link")
             .data(links, function (d) {
                 return d.id;
             });
@@ -209,6 +227,39 @@ excerpt: 费邑唐村，为邵氏族居之所。
             d._children = null;
         }
         update(d);
+    }
+
+    function bindZoom() {
+        zoom = d3.zoom()
+            .scaleExtent([zoomMin, zoomMax])
+            .on('zoom', function () {
+                transform = d3.zoomTransform(this);
+                container.attr('transform', transform);
+                console.log(transform, 'transform...')
+            })
+
+        svg.call(zoom).on('dblclick.zoom', null);
+    };
+
+    function zoomIn() {
+        svg.transition().call(zoom.scaleBy, 0.7);
+    };
+
+    function zoomOut() {
+        svg.transition().call(zoom.scaleBy, 1.3);
+    };
+
+    function stopZoom() { //解除zoom绑定
+        svg.on('mousedown.zoom', null);
+        svg.on('mousemove.zoom', null);
+        svg.on('dblclick.zoom', null);
+        svg.on('touchstart.zoom', null);
+    };
+
+    function resetZoom() {
+        container.transition()
+            .duration(750)
+            .call(zoom.transform, d3.zoomIdentity);
     }
 
 </script>
