@@ -1,0 +1,56 @@
+---
+layout: post
+author: Shao Zelian
+title: D3 Tree Test
+category: Technologies
+tags: D3
+excerpt: D3 Tree Test
+---
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Enlarge and Pop-up Div</title>
+    <style>
+        .popup-div {
+            z-index: 1;
+            background-color: white;
+            border: 1px solid #888;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            animation: pop-up 0.3s ease-in-out;
+        }
+
+        @keyframes pop-up {
+            0% {
+                transform: translate(-50%, -40%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate(-50%, -50%);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="myButton">Enlarge and Pop-up Div</button>
+    <div id="myDiv" class="popup-div">
+        <h2>Enlarged and Popped-up Div</h2>
+        <p>This is the content of the enlarged and popped-up div.</p>
+    </div>
+
+    <script>
+        const button = document.getElementById('myButton');
+        const div = document.getElementById('myDiv');
+
+        button.addEventListener('click', () => {
+            div.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>
