@@ -25,7 +25,7 @@ excerpt: D3 Tree Test
         display: block;
         width: 100%;
         /* Center the popup */
-        background-color: rgba(255, 255, 255, 0.451);
+        background-color: rgba(92, 90, 90, 0.451);
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -46,6 +46,21 @@ excerpt: D3 Tree Test
         font-size: 1.2em;
         margin-left: 10px;
     }
+
+    .tree-container h2 {
+        margin-top: -30px !important;
+    }
+
+    .svg-toolbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .svg-toolbar button {
+        margin-left: 10px;
+    }
 </style>
 
 <div class="overlay" id="overlay"></div>
@@ -58,16 +73,8 @@ excerpt: D3 Tree Test
             <i class="fa-solid fa-minimize"></i>
         </button>
     </div>
-    <h2>Popup Title</h2>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
-    <p>This is a centered popup window!</p>
+    <h2>D3 Tree Sample</h2>
+    <div id="svg-container"></div>
 </div>
 
 <script>
@@ -89,6 +96,15 @@ excerpt: D3 Tree Test
         container.style.transform = 'translate(-50%, -50%)';
         enlargeButton.style.display = "none";
         minimizeButton.style.display = "block";
+
+        // const w = $("#tree-svg").width();
+        // const h = $("#tree-svg").height();
+
+        // const tree_group = d3.select("#tree-container").select("svg").select("g#tree-group");
+        // console.log("tree_group", tree_group);
+        // if (tree_group) {
+        //     tree_group.attr("transform", "translate(100, 50)");
+        // }
     }
 
     function minimize() {
@@ -100,3 +116,5 @@ excerpt: D3 Tree Test
         minimizeButton.style.display = "none";
     } 
 </script>
+
+<script src="/assets/js/d3-tree-test.js"></script>

@@ -47,6 +47,11 @@ excerpt: To make a div content popup window with enlarging and mimizing function
         font-size: 1.2em;
         margin-left: 10px;
     }
+
+    .tree-container h2 {
+        margin-top: -30px !important;
+    }
+
 </style>
 
 ## Demo
