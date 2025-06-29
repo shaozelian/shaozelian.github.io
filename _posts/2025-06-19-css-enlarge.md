@@ -86,7 +86,8 @@ This is the the demo.
     const minimizeButton = document.getElementById('minimize-button');
     let originalPosition = {
         top: container.top,
-        left: container.left
+        left: container.left,
+        height: container.height
     };
 
     function enlarge() {
@@ -94,6 +95,7 @@ This is the the demo.
         container.style.position = 'fixed';
         container.style.top = '50%';
         container.style.left = '50%';
+        container.style.height = `${window.innerHeight}px`;        
         container.style.transform = 'translate(-50%, -50%)';
         enlargeButton.style.display = "none";
         minimizeButton.style.display = "block";
@@ -103,6 +105,7 @@ This is the the demo.
         overlay.style.display = 'none';
         container.style.position = 'static';
         container.style.top = `${originalPosition.top}px`;
+        container.style.height = `${originalPosition.height}px`;        
         container.style.transform = "none";
         enlargeButton.style.display = "block";
         minimizeButton.style.display = "none";
@@ -197,7 +200,8 @@ Javascript code as below.
     const minimizeButton = document.getElementById('minimize-button');
     let originalPosition = {
         top: container.top,
-        left: container.left
+        left: container.left,
+        height: container.height
     };
 
     function enlarge() {
@@ -205,6 +209,7 @@ Javascript code as below.
         container.style.position = 'fixed';
         container.style.top = '50%';
         container.style.left = '50%';
+        container.style.height = `${window.innerHeight}px`;
         container.style.transform = 'translate(-50%, -50%)';
         enlargeButton.style.display = "none";
         minimizeButton.style.display = "block";
@@ -214,6 +219,7 @@ Javascript code as below.
         overlay.style.display = 'none';
         container.style.position = 'static';
         container.style.top = `${originalPosition.top}px`;
+        container.style.height = `${originalPosition.height}px`;
         container.style.transform = "none";
         enlargeButton.style.display = "block";
         minimizeButton.style.display = "none";

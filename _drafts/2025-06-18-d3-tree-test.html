@@ -84,7 +84,8 @@ excerpt: D3 Tree Test
     const minimizeButton = document.getElementById('minimize-button');
     let originalPosition = {
         top: container.top,
-        left: container.left
+        left: container.left,
+        height: container.height
     };
 
     function enlarge() {
@@ -93,27 +94,29 @@ excerpt: D3 Tree Test
         container.style.position = 'fixed';
         container.style.top = '50%';
         container.style.left = '50%';
+        container.style.height = `${window.innerHeight}px`;
         container.style.transform = 'translate(-50%, -50%)';
         enlargeButton.style.display = "none";
         minimizeButton.style.display = "block";
 
-        // const w = $("#tree-svg").width();
-        // const h = $("#tree-svg").height();
-
-        // const tree_group = d3.select("#tree-container").select("svg").select("g#tree-group");
-        // console.log("tree_group", tree_group);
-        // if (tree_group) {
-        //     tree_group.attr("transform", "translate(100, 50)");
-        // }
+        // To maximum svg
+        d3.select("#tree-svg")
+            .attr("id", "tree-svg")
+            .attr("height", `${window.innerHeight - 150}`);
     }
 
     function minimize() {
         overlay.style.display = 'none';
         container.style.position = 'static';
         container.style.top = `${originalPosition.top}px`;
+        container.style.height = `${originalPosition.height}px`;
         container.style.transform = "none";
         enlargeButton.style.display = "block";
         minimizeButton.style.display = "none";
+        // To minimize svg
+        d3.select("#tree-svg")
+            .attr("id", "tree-svg")
+            .attr("height", "500");
     } 
 </script>
 
