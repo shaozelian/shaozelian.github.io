@@ -90,6 +90,12 @@
 
                     // 设置默认缩放比例为 50%
                     panZoomInstance.zoom(0.7);
+
+                    var panZoomContainer = document.querySelector('svg .svg-pan-zoom-control:last-child');
+                    if (panZoomContainer) {
+                        // debugger;
+                        panZoomContainer.style.transform = "translate(0, 0) scale(0.7)";
+                    }
                 }
 
             });
