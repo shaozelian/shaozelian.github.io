@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: " en-US" }}">
+<title> {% if page.title %}{{ page.title }} | {% endif %}{{ site.title | default: site.github.repository_name }}</title>
 
 <head>
     <meta charset='utf-8'>
@@ -76,33 +77,26 @@
         var instance = M.Tooltip.getInstance(elems);
 
         /** svg-pan-zoom plugin */
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                //debugger;
-                var svgElement = document.querySelector('.language-mermaid > svg');
-                if (svgElement) {
-                    svgElement.setAttribute("width", "100%");
-                    var panZoomInstance = svgPanZoom(svgElement, {
+        document.addEventListener('DOMContentLoaded', function () {
+            var svgElements = document.querySelectorAll('.language-mermaid > svg')
+            console.log("DOMContentLoaded " + svgElements.length);
+            if (svgElements.length > 0) {
+                svgElements.forEach(el => {
+                    var panZoomInstance = svgPanZoom(`#${el.id}`, {
                         zoomEnabled: true,
                         controlIconsEnabled: true,
                         fit: true,
                         center: true
                     });
 
-                    // 设置默认缩放比例为 50%
-                    panZoomInstance.zoom(0.7);
-
-                    var panZoomContainer = document.querySelector('svg .svg-pan-zoom-control:last-child');
+                    var panZoomContainer = el.querySelector('.svg-pan-zoom-control');
                     if (panZoomContainer) {
                         // debugger;
                         panZoomContainer.style.transform = "translate(0, 0) scale(0.7)";
                     }
-                }
-
-            });
+                });
+            }
         });
-        observer.observe(document.body, { childList: true, subtree: true });
-
     </script>
 </body>
 

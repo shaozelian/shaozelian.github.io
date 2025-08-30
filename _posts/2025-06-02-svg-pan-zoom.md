@@ -34,7 +34,7 @@ flowchart TD
 - Call init method.
 
 Sample code block (mermaid chart as example).
-> Tip: Mermaid.js often generates SVGs dynamically, so need to wait for them to appear. (MutationObserver) <br/>
+> Tip: Mermaid.js often generates SVGs dynamically, so need to wait for them to appear. (DOMContentLoaded) <br/>
 > Tip: To change the default svg width as "100%".
 
 ~~~html
@@ -47,33 +47,28 @@ Sample code block (mermaid chart as example).
 <body>
     ...
     <script>
+        //....
         /** svg-pan-zoom plugin */
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                //debugger;
-                var svgElement = document.querySelector('.language-mermaid > svg');
-                if (svgElement) {
-                    svgElement.setAttribute("width", "100%");
-                    var panZoomInstance = svgPanZoom(svgElement, {
+        document.addEventListener('DOMContentLoaded', function () {
+            var svgElements = document.querySelectorAll('.language-mermaid > svg')
+            console.log("DOMContentLoaded " + svgElements.length);
+            if (svgElements.length > 0) {
+                svgElements.forEach(el => {
+                    var panZoomInstance = svgPanZoom(`#${el.id}`, {
                         zoomEnabled: true,
                         controlIconsEnabled: true,
                         fit: true,
                         center: true
                     });
 
-                    // 设置默认缩放比例为 50%
-                    panZoomInstance.zoom(0.7);
-
-                    var panZoomContainer = document.querySelector('svg .svg-pan-zoom-control:last-child');
+                    var panZoomContainer = el.querySelector('.svg-pan-zoom-control');
                     if (panZoomContainer) {
                         // debugger;
                         panZoomContainer.style.transform = "translate(0, 0) scale(0.7)";
-                    }                    
-                }
-
-            });
+                    }
+                });
+            }
         });
-        observer.observe(document.body, { childList: true, subtree: true });
     </script>
 </body>
 ~~~
