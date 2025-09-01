@@ -1,0 +1,57 @@
+<style>
+    .holy-grail {
+        display: grid;
+        grid-template:
+            "header header header" auto
+            "nav    main   aside" 1fr
+            "footer footer footer" auto
+            / auto 1fr auto;
+        min-height: 100vh;
+    }
+
+    .holy-grail>header {
+        grid-area: header;
+    }
+
+    .holy-grail>nav {
+        grid-area: nav;
+    }
+
+    .holy-grail>main {
+        grid-area: main;
+    }
+
+    .holy-grail>aside {
+        grid-area: aside;
+    }
+
+    .holy-grail>footer {
+        grid-area: footer;
+    }
+</style>
+
+<div class="holy-grail" style="border: solid 1px;">
+    <header style="border: solid 1px;">
+        <h1>Header</h1>
+    </header>
+    <nav style="border: solid 1px;">
+        <h2>Navigation</h2>
+        <ul>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+        </ul>
+    </nav>
+    <main style="border: solid 1px;">
+        <h2>Main Content</h2>
+        <p>This is the main content area.</p>
+    </main>
+    <aside style="border: solid 1px;">
+        <h2>Aside Content</h2>
+        <p>This is the aside content area.</p>
+    </aside>
+    <footer style="border: solid 1px;">
+        <h2>Footer</h2>
+        <p>This is the footer area.</p>
+    </footer>
+</div>
