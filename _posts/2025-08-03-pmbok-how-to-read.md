@@ -6,6 +6,22 @@ category: Project Management
 tags: PMP
 excerpt: PMBOK® Guide阅读大纲
 ---
+<style type="text/css">
+pre  {
+    min-width: 350px;
+    width: 100%;
+    min-height: 500px;
+}
+
+pre svg{
+    min-width: 350px;
+    max-width: 100% !important;    
+    min-height: 500px;
+}
+svg g{
+    transform="translate(0, 0)";
+}
+</style>
 
 ```mermaid
 ---
