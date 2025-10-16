@@ -1,10 +1,10 @@
 ---
 layout: post
 author: Shao Zelian
-title: Countdown clock only with HTML and CSS
+title: Hover cards with HTML and CSS
 category: Technologies
 tags: Web-Development
-excerpt: To make a beautiful countdown clock only with HTML and CSS 
+excerpt: Hover cards with HTML and CSS
 ---
 
 <style>
