@@ -1,0 +1,41 @@
+gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
+gem sources -l
+
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://gems.ruby-china.com/
+
+brew update
+brew upgrade
+
+brew info ruby
+brew install ruby
+echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> /Users/zelian.shao/.zshrc
+
+ruby -v
+gem -v
+
+-- install gem packages in Gemfile
+bundle update
+
+-- install specific version of eventmachine to avoid build errors --> not work
+-- gem install eventmachine -v '1.2.7' -- --with-ldflags="-Wl,-undefined,dynamic_lookup"
+
+-- reinstall xcode
+xcode-select -print-path
+sudo rm -rf /Library/Developer/CommandLineTools
+-- The following command will pop up a dialog to install the tools
+xcode-select --install 
+
+-- verify installation
+xcode-select -print-path
+
+-- bundle update
+bundle update
+
+-- bundle exec jekyll serve
+bundle exec jekyll serve
+
+http://localhost:4000
+
+
+  git config --global user.email "shaozelian@live.com"
+git config --global user.email "shaozelian@live.com"
