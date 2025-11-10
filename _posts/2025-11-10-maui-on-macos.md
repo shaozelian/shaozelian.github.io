@@ -171,4 +171,6 @@ Something important need pay attention to during installation.
 - You may play the app to experience the demo.
 - You can also switch to different simulator and platform by change the configuration.
 
-Till now, the first MAUI project is set up and able to run successfully in different simulators of platforms.
+## End
+
+Till now, the first MAUI project is set up and able to run successfully in different simulators of platforms. Enjoy MAUI for cross-platforms development and have fun!
