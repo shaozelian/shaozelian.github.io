@@ -123,6 +123,14 @@ Something important need pay attention to during installation.
 
   > Install Visusal Studio Code and its Extensions including C#, C# Dev Kit and .NET MAUI.
 
+  > Install dotnet MAUI workload by the following command lines.
+
+  ```bash
+    % dotnet workload install maui
+    # to check installed workload
+    % dotnet workload list
+  ```
+
 - Accept Android Licenses
 
   > This step is to remove errors of .NET MAUI project in later steps.
