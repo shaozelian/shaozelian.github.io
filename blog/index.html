@@ -22,7 +22,7 @@ title: BLOG
 
     @media only screen and (max-width: 430px) {
         .floating-div {
-            display:none;
+            display: none;
         }
     }
 </style>
@@ -38,7 +38,8 @@ title: BLOG
     <ul>
         {% for post in paginator.posts %}
         <li>
-            <h3><a href="{{ post.url }}">{{ post.title }}</a><span>&nbsp;|&nbsp;{{ post.date | date_to_string }}</span></h3>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a><span>&nbsp;|&nbsp;{{ post.date | date_to_string }}</span>
+            </h3>
             <span>{{ post.excerpt }}</span>
         </li>
         {% endfor %}
